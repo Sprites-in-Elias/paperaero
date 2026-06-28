@@ -90,7 +90,11 @@ class TestViewModel : ViewModel() {
 }
 
 @Composable
-fun TestGreetingScreen(navController: NavController = rememberNavController(), viewModel: TestViewModel = viewModel(), modifier: Modifier) {
+fun TestGreetingScreen(
+    navController: NavController = rememberNavController(),
+    viewModel: TestViewModel = viewModel(),
+    modifier: Modifier
+) {
     // 서버 데이터가 바뀌면 자동으로 UI가 다시 그려짐
     val msg by viewModel.message.collectAsState()
     val context = LocalContext.current

@@ -27,6 +27,8 @@ android {
         //환경변수
         val serverUrl = properties.getProperty("GO_SERVER_URL") ?: "\"http://localhost:8080\""
         buildConfigField("String", "GO_SERVER_URL", serverUrl)
+        val liveKitUrl = properties.getProperty("LIVE_KIT_SERVER_URL") ?: "\"ws://localhost:8080/livekit\""
+        buildConfigField("String", "LIVE_KIT_SERVER_URL", liveKitUrl)
     }
 
     buildTypes {
@@ -55,6 +57,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
@@ -63,9 +66,11 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.11.0")
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
     implementation("com.squareup.retrofit2:converter-scalars:2.11.0")
     implementation("androidx.navigation:navigation-compose:2.8.0")
+    implementation("io.livekit:livekit-android:2.4.0")
+    implementation("io.livekit:livekit-android-compose-components:2.4.0")
 }

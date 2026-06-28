@@ -65,6 +65,23 @@ fun LoginScreen(
 
         Button(
             onClick = {
+                navController.navigate("testRoom")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(56.dp)
+        ) {
+            Text(
+                text = "테스트 룸 들어가기",
+                fontSize = 18.sp,
+                fontWeight = FontWeight.SemiBold
+            )
+        }
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        Button(
+            onClick = {
                 onTestButtonClick()
             },
             modifier = Modifier

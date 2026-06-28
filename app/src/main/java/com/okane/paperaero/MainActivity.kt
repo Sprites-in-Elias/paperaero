@@ -25,6 +25,7 @@ import androidx.navigation.compose.rememberNavController
 import com.okane.paperaero.lobby.LobbyScreen
 import com.okane.paperaero.login.LoginScreen
 import com.okane.paperaero.test.TestGreetingScreen
+import com.okane.paperaero.test.TestRoomScreen
 import com.okane.paperaero.ui.theme.PaperAeroTheme
 import com.okane.paperaero.util.RealtimeToast
 
@@ -61,7 +62,9 @@ fun AppNavigation() {
                         context,
                         "대기방 리스트로 이동합니다"
                     )
-                    navController.navigate("lobby")
+                    navController.navigate("lobby"){
+                        popUpTo("login") { inclusive = true }
+                    }
                 },
                 onTestButtonClick = {
                     navController.navigate("test")
@@ -75,6 +78,9 @@ fun AppNavigation() {
             route = "test"
         ) {
             TestGreetingScreen(navController = navController, modifier = Modifier)
+        }
+        composable("testRoom") {
+            TestRoomScreen(navController = navController)
         }
     }
 }

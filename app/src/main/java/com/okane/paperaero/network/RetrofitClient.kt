@@ -14,3 +14,10 @@ object RetrofitClient {
             .build()
     }
 }
+
+data class ApiResponse<T>(
+    val status: String,
+    val code: Int,
+    val data: T,
+    val message: String
+)
